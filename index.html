@@ -2,168 +2,159 @@
 <head>
   <meta charset="UTF-8">
   <title>Layanan Digital Pidsus Kejaksaan Negeri Subulussalam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('dewi-hukum.jpg') center / cover no-repeat fixed;
-      display: flex;
-      justify-content: center;
-    }
-    }
-    .page {
-      width: 100%;
-      max-width: 420px;
-      padding: 16px;
-    }
-    .top-logos {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      margin-bottom: 16px;
-    }
-    .top-logos img {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      background: white;
-      padding: 6px;
-      object-fit: contain;
-    }
-    .social {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 20px 0;
-    }
-    .social a {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .social a img {
-      width: 26px;
-      height: 26px;
-    }
-    .social a:hover {
-      transform: translateY(-4px) scale(1.08);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-    }
-    .social a:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-    }
-    .btn-main {
-      background: black;
-      color: white;
-      padding: 14px;
-      border-radius: 30px;
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
-      display: block;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn-main:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 0px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-height: 88px;
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-    }
-    .card img {
-      width: 88px;
-      height: 88px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .card strong {
-      padding: 10px 14px 10px 0;
-      font-size: 15px;
-      line-height: 1.4;
-    }
-    @media (min-width: 768px) {
-      body { justify-content: center; }
-      .page { max-width: 900px; }
-      .cards {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-    }
-  .music-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 52px;
-      height: 52px;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .music-btn:hover {
-      transform: scale(1.1);
-      background: rgba(0,0,0,0.85);
-    }</style><script>
-  const music = document.getElementById('bgMusic');
-  const btn = document.getElementById('musicToggle');
-  let isPlaying = false;
-
-  btn.addEventListener('click', () => {
-    if (!isPlaying) {
-      music.play();
-      btn.textContent = '🔊';
-    } else {
-      music.pause();
-      btn.textContent = '🔇';
-    }
-    isPlaying = !isPlaying;
-  });
-</script></head>
-<body>
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="musik.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung audio.
-  </audio>  <!-- Music Toggle Button --><button id="musicToggle" class="music-btn">🔇</button>
-
-  <div class="page"><div class="top-logos">
-  <img src="logo1.png" alt="Logo 1">
-  <img src="logo2.png" alt="Logo 2">
-</div>
-
-<div class="social">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <style>
+:root {
+  --bg-dark: rgba(0,0,0,0.55);
+  --card-radius: 16px;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.18);
+  --shadow-hover: 0 10px 26px rgba(0,0,0,0.28);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(var(--bg-dark), var(--bg-dark)), url('dewi-hukum.jpg') center / cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+}
+.page {
+  width: 100%;
+  max-width: 420px;
+  padding: 18px 16px 28px;
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.header-row img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 0; /* hilangkan kotak putih */
+}
+.instansi {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 22px; /* diperbesar */
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+.instansi span {
+  display: block;
+  font-size: 16px; /* diperbesar */
+  letter-spacing: 3px;
+  opacity: 0.85;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+.social a {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.social a img {
+  width: 26px;
+  height: 26px;
+}
+.social a:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: var(--shadow-hover);
+}
+.btn-main {
+  display: block;
+  margin-bottom: 22px;
+  padding: 14px;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 32px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-main:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-hover);
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 84px;
+  background: #fff;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.card img {
+  width: 120px;
+  height: 120px;
+  padding: 8px;
+  object-fit: contain;
+  background: #fff;
+}
+.card strong {
+  font-size: 15px;
+  line-height: 1.4;
+  padding-left: 12px;
+}
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, background .2s ease;
+}
+.music-btn:hover {
+  transform: scale(1.1);
+  background: rgba(0,0,0,0.85);
+}
+</style></head><body>
+  <div class="page">
+    <div class="header-row">
+      <img src="logo1.png" alt="Logo Kejaksaan">
+      <div class="instansi">
+        KEJAKSAAN NEGERI
+        <span>SUBULUSSALAM</span>
+      </div>
+      <img src="logo2.png" alt="Logo Pidsus">
+    </div><div class="social">
   <a href="https://www.tiktok.com/@kejari_subulussalam" target="_blank" title="TikTok">
     <img src="icons/tiktok.svg" alt="TikTok">
   </a>
@@ -181,25 +172,51 @@
   </a>
 </div>
 
-<a class="btn-main" href="https://kn.subulussalamkota.go.id" target="_blank">🌐 KUNJUNGI WEBSITE KAMI</a>
+<a class="btn-main" href="#" target="_blank">🌐 KUNJUNGI WEBSITE KAMI</a>
 
 <div class="cards">
-  <a class="card" href="https://forms.gle/e5gZwGrYKakxKToy7" target="_blank">
-    <img src="laporjaksa.png" alt="Lapor Jaksa">
-    <strong>LAPORKAN KORUPSI<br> TANPA RASA TAKUT!</strong>
+  <a class="card" href="#" target="_blank">
+    <img src="laporjaksa.png">
+    <strong>LAPORKAN KORUPSI,<br>TANPA RASA TAKUT!</strong>
   </a>
 
-  <a class="card" href="https://forms.gle/Soqg4RMJ3KESMLHx6" target="_blank">
-    <img src="ebetah.png" alt="e-BETAH">
-    <strong>IZIN BESUK TAHANAN<br> SECARA ELEKTRONIK!</strong>
+  <a class="card" href="#" target="_blank">
+    <img src="ebetah.png">
+    <strong>IZIN BESUK TAHANAN<br>SECARA ELEKTRONIK</strong>
   </a>
 
-  <a class="card" href="https://wa.me/6285373217879" target="_blank">
-    <img src="ccwhatsapp.png" alt="WhatsApp">
-    <strong>AJUKAN PERTANYAAN,<br> MIMIN YANG JAWAB 🙂</strong>
+  <a class="card" href="#" target="_blank">
+    <img src="ccwhatsapp.png">
+    <strong>AJUKAN PERTANYAAN<br>MIMIN YANG JAWAB</strong>
   </a>
 </div>
 
-  </div>
-</body>
+  </div>  <!-- AUDIO & TOMBOL MUSIK -->  <audio id="bgMusic" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio><button id="musicToggle" class="music-btn">🔇</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bgMusic');
+      const btn = document.getElementById('musicToggle');
+      let isPlaying = false;
+
+      document.body.addEventListener('click', function enableMusic() {
+        music.play().catch(()=>{});
+        document.body.removeEventListener('click', enableMusic);
+      });
+
+      btn.addEventListener('click', () => {
+        if (isPlaying) {
+          music.pause();
+          btn.textContent = '🔇';
+        } else {
+          music.play().catch(()=>{});
+          btn.textContent = '🔊';
+        }
+        isPlaying = !isPlaying;
+      });
+    });
+  </script></body>
 </html>
