@@ -1,222 +1,251 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Layanan Digital Pidsus Kejaksaan Negeri Subulussalam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <style>
-:root {
-  --bg-dark: rgba(0,0,0,0.55);
-  --card-radius: 16px;
-  --shadow-soft: 0 4px 12px rgba(0,0,0,0.18);
-  --shadow-hover: 0 10px 26px rgba(0,0,0,0.28);
+<meta charset="UTF-8">
+<title>Pidsus Digital Kejaksaan Negeri Subulussalam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --overlay: rgba(0,0,0,.65);
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0,0,0,.28);
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(var(--bg-dark), var(--bg-dark)), url('dewi-hukum.jpg') center / cover no-repeat fixed;
-  display: flex;
-  justify-content: center;
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Tahoma, sans-serif;
+  background:
+    linear-gradient(var(--overlay), var(--overlay)),
+    url("dewi-hukum.jpg") center / cover no-repeat fixed;
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
 }
-.page {
-  width: 100%;
-  max-width: 420px;
-  padding: 18px 16px 28px;
+
+/* ===== WRAPPER ===== */
+.wrapper{
+  width:100%;
+  max-width:720px;
+  padding:36px 18px 70px;
 }
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 22px;
+
+/* ===== HEADER ===== */
+.header{
+  display:grid;
+  grid-template-columns:56px 1fr 56px;
+  align-items:center;
+  margin-bottom:28px;
 }
-.header-row img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 0; /* hilangkan kotak putih */
+
+.header img{
+  width:52px;
+  justify-self:center;
 }
-.instansi {
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 22px; /* diperbesar */
-  letter-spacing: 2px;
-  font-weight: 800;
+
+.header-title{
+  text-align:center;
 }
-.instansi span {
-  display: block;
-  font-size: 16px; /* diperbesar */
-  letter-spacing: 3px;
-  opacity: 0.85;
+
+.header-title h1{
+  margin:0;
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:1.8px;
 }
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin: 18px 0 24px;
+
+.header-title span{
+  display:block;
+  margin-top:8px;
+  font-size:14px;
+  letter-spacing:2.2px;
+  opacity:.85;
 }
-.social a {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-soft);
-  transition: transform .2s ease, box-shadow .2s ease;
+
+/* ===== SOCIAL ===== */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:26px 0 34px;
 }
-.social a img {
-  width: 26px;
-  height: 26px;
+
+.social a{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
 }
-.social a:hover {
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: var(--shadow-hover);
+
+.social a:hover{
+  transform:translateY(-3px) scale(1.05);
 }
-.btn-main {
-  display: block;
-  margin-bottom: 22px;
-  padding: 14px;
-  text-align: center;
-  background: #000;
-  color: #fff;
-  font-weight: 700;
-  border-radius: 32px;
-  text-decoration: none;
-  letter-spacing: 1px;
-  box-shadow: var(--shadow-soft);
-  transition: transform .2s ease, box-shadow .2s ease;
+
+.social img{
+  width:22px;
 }
-.btn-main:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-hover);
+
+/* ===== CARDS ===== */
+.cards{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
 }
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+
+.card{
+  background:#fff;
+  color:#000;
+  border-radius:var(--radius);
+  padding:30px 22px;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:.25s ease;
 }
-.card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 84px;
-  background: #fff;
-  border-radius: var(--card-radius);
-  overflow: hidden;
-  text-decoration: none;
-  color: #000;
-  box-shadow: var(--shadow-soft);
-  transition: transform .2s ease, box-shadow .2s ease;
+
+.card:hover{
+  transform:translateY(-4px);
 }
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+
+.card img{
+  width:74px;
+  height:74px;
+  object-fit:contain;
+  margin-bottom:18px;
 }
-.card img {
-  width: 120px;
-  height: 120px;
-  padding: 8px;
-  object-fit: contain;
-  background: #fff;
+
+.card-text{
+  max-width:460px;
 }
-.card strong {
-  font-size: 15px;
-  line-height: 1.4;
-  padding-left: 12px;
+
+.card-text span{
+  display:block;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.55;
+  letter-spacing:.4px;
+  text-transform:uppercase;
 }
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: var(--shadow-soft);
-  transition: transform .2s ease, background .2s ease;
+
+/* ===== MUSIC BUTTON ===== */
+.music-btn{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:none;
+  background:rgba(0,0,0,.75);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  z-index:999;
 }
-.music-btn:hover {
-  transform: scale(1.1);
-  background: rgba(0,0,0,0.85);
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:768px){
+  .header-title h1{ font-size:28px; }
+  .card-text span{ font-size:16px; }
 }
-</style></head><body>
-  <div class="page">
-    <div class="header-row">
-      <img src="logo1.png" alt="Logo Kejaksaan">
-      <div class="instansi">
-        KEJAKSAAN NEGERI
-        <span>SUBULUSSALAM</span>
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo1.png" alt="Kejaksaan RI">
+    <div class="header-title">
+      <h1>PIDSUS DIGITAL</h1>
+      <span>KEJAKSAAN NEGERI SUBULUSSALAM</span>
+    </div>
+    <img src="logo2.png" alt="Pidsus">
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="social">
+    <a href="https://www.tiktok.com/@kejari_subulussalam" target="_blank"><img src="icons/tiktok.svg"></a>
+    <a href="https://www.instagram.com/kejari_subulussalam" target="_blank"><img src="icons/instagram.svg"></a>
+    <a href="https://www.facebook.com/kejaksaan.subulussalam" target="_blank"><img src="icons/facebook.svg"></a>
+    <a href="https://www.youtube.com/@kejaksaannegerisubulussala4275" target="_blank"><img src="icons/youtube.svg"></a>
+    <a href="https://x.com/@KN_Subulussalam" target="_blank"><img src="icons/x.svg"></a>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <a class="card" href="https://span.lapor.go.id" target="_blank">
+      <img src="spanlapor.png">
+      <div class="card-text">
+        <span>Layanan pengaduan masyarakat untuk pelaporan tindak pidana korupsi</span>
       </div>
-      <img src="logo2.png" alt="Logo Pidsus">
-    </div><div class="social">
-  <a href="https://www.tiktok.com/@kejari_subulussalam" target="_blank" title="TikTok">
-    <img src="icons/tiktok.svg" alt="TikTok">
-  </a>
-  <a href="https://www.instagram.com/kejari_subulussalam" target="_blank" title="Instagram">
-    <img src="icons/instagram.svg" alt="Instagram">
-  </a>
-  <a href="https://www.facebook.com/kejaksaan.subulussalam" target="_blank" title="Facebook">
-    <img src="icons/facebook.svg" alt="Facebook">
-  </a>
-  <a href="https://www.youtube.com/@kejaksaannegerisubulussala4275" target="_blank" title="YouTube">
-    <img src="icons/youtube.svg" alt="YouTube">
-  </a>
-  <a href="https://x.com/@KN_Subulussalam" target="_blank" title="X">
-    <img src="icons/x.svg" alt="X">
-  </a>
+    </a>
+
+    <a class="card" href="https://ebetah-pidsus-sbs.great-site.net/" target="_blank">
+      <img src="ebetah.png">
+      <div class="card-text">
+        <span>Layanan izin besuk elektronik tahanan penyidik kejaksaan Negeri Subulussalam(e-betah)</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://wa.me/6285373217879" target="_blank">
+      <img src="ccwhatsapp.png">
+      <div class="card-text">
+        <span>Layanan informasi dan konsultasi<br>khusus e-BETAH</span>
+      </div>
+    </a>
+
+  </div>
+
 </div>
 
-<a class="btn-main" href="https://kn.subulussalamkota.go.id" target="_blank">🌐 KUNJUNGI WEBSITE KAMI</a>
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
 
-<div class="cards">
-  <a class="card" href="https://span.lapor.go.id" target="_blank">
-    <img src="spanlapor.png">
-    <strong>LAPORKAN KORUPSI<br>TANPA RASA TAKUT!</strong>
-  </a>
+<button id="musicBtn" class="music-btn">🔇</button>
 
-  <a class="card" href="https://ebetah-pidsus-sbs.great-site.net/" target="_blank">
-    <img src="ebetah.png">
-    <strong>IZIN BESUK TAHANAN<br>SECARA ELEKTRONIK</strong>
-  </a>
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let started = false;
 
-  <a class="card" href="https://wa.me/6285373217879" target="_blank">
-    <img src="ccwhatsapp.png">
-    <strong>AJUKAN PERTANYAAN<br>MIMIN YANG JAWAB</strong>
-  </a>
-</div>
+document.body.addEventListener("click", () => {
+  if(!started){
+    music.volume = 0.4;
+    music.play().catch(()=>{});
+    btn.textContent = "🔊";
+    started = true;
+  }
+}, { once:true });
 
-  </div>  <!-- AUDIO & TOMBOL MUSIK -->  <audio id="bgMusic" loop>
-    <source src="musik.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung audio.
-  </audio><button id="musicToggle" class="music-btn">🔇</button>
+btn.addEventListener("click", e => {
+  e.stopPropagation();
+  if(music.paused){
+    music.play();
+    btn.textContent = "🔊";
+  }else{
+    music.pause();
+    btn.textContent = "🔇";
+  }
+});
+</script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const music = document.getElementById('bgMusic');
-      const btn = document.getElementById('musicToggle');
-      let isPlaying = false;
-
-      document.body.addEventListener('click', function enableMusic() {
-        music.play().catch(()=>{});
-        document.body.removeEventListener('click', enableMusic);
-      });
-
-      btn.addEventListener('click', () => {
-        if (isPlaying) {
-          music.pause();
-          btn.textContent = '🔇';
-        } else {
-          music.play().catch(()=>{});
-          btn.textContent = '🔊';
-        }
-        isPlaying = !isPlaying;
-      });
-    });
-  </script></body>
+</body>
 </html>
